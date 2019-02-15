@@ -1,4 +1,4 @@
-FROM php/7.3-fpm-alpine
+FROM phpdockerio/php72-fpm:latest
 WORKDIR "/application"
 
 COPY composer.json composer.lock symfony.lock  /application/
@@ -14,6 +14,4 @@ RUN apt-get update \
     && apt-get -y install git \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-COPY phpdocker/xdebug.ini /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-
-RUN chmod -R 0777 /application/var
+COPY phpdocker/php/xdebug.ini /etc/php/7.2/fpm/conf.d/20-xdebug.ini
