@@ -21,7 +21,7 @@ services:
       working_dir: /application
       volumes:
           - .:/application
-          - ./phpdocker/nginx/nginx.conf:/etc/nginx/nginx.conf
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       ports:
        - "8000:80"
 
